@@ -1,0 +1,67 @@
+.header {
+    grid-area: h;
+    background-color: #cbdaff;
+}
+
+.header img {
+    width: 60px;
+}
+
+.loginBlock {
+    float: right;
+}
+
+.headerNavigation {
+    width: 40px;
+    height: auto;
+    background-color: black;
+}
+
+.headerNavigation h3 {
+    width: 25px;
+    border-radius: 50px;
+    float: left;
+}
+
+.headerNavigation .logout {
+    font-size: .8em;
+    font-family: 'Oswald', sans-serif;
+    position: relative;
+    right: -18px;
+    bottom: -4px;
+    overflow: hidden;
+    letter-spacing: 3px;
+    opacity: 0;
+    transition: opacity .45s;
+    -webkit-transition: opacity .35s;
+}
+
+.headerNavigation .buttonWrapper {
+    text-decoration: none;
+    display: inline-block;
+    float: right;
+    padding: 10px;
+    margin: 2px;
+    color: #cbdaff;
+    width: 100px;
+    background-color: #9ba9ce;
+    transition: width .35s;
+    -webkit-transition: width .45s;
+    overflow: hidden
+}
+
+.headerNavigation .buttonWrapper:hover {
+    color: #f5ffef;
+    background-color: #658aa7;
+    width: 180px;
+    text-align: center;
+    alignment: center;
+}
+
+.headerNavigation .buttonWrapper:hover .logout {
+    opacity: .9;
+}
+
+.headerNavigation .buttonWrapper {
+    text-decoration: none;
+}

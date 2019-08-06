@@ -1,0 +1,23 @@
+import React from 'react';
+import style from './Users.module.css';
+import User from "./User/User";
+
+const Users = (props) => {
+    return (
+        <div>
+            <div className={style.userWrapper}>
+                <div className={style.userList}>
+                    {
+                        props.users.map(user =>
+                            <User user={user}
+                                  deleteUser={props.deleteUser}
+                                  token = {props.token}/>
+                        )
+                    }
+                </div>
+            </div>
+        </div>)
+        ;
+};
+
+export default Users;

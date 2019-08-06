@@ -1,0 +1,66 @@
+.userItem {
+    display: flex;
+    height: 130px;
+    padding: 8px;
+    overflow: auto;
+    transition: all 0.4s linear;
+}
+
+.userItem:hover {
+    background: #fcfffa;
+    cursor: pointer;
+}
+
+.photo {
+    border-radius: 10px;
+    width: 60px;
+    float: left;
+    margin: 0 15px 0 0;
+}
+
+.information {
+    display: inline-grid;
+}
+
+.status {
+    font: 200 12px/1.5 'Oswald', sans-serif;
+    font-size: 18px;
+}
+
+.userFullName {
+    text-decoration: none;
+    color: #658aa7;
+    font-size: 18px;
+    transition: 0.5s;
+}
+
+.userFullName:hover {
+    text-decoration: none;
+    color: #1b2637;
+}
+
+.followBtn {
+
+    border-radius: 2px;
+    text-align: center;
+    color: #cbdaff;
+    width: 100px;
+    background-color: #9ba9ce;
+    transition: 0.6s;
+}
+
+.btnGroup {
+    margin-right: 30px;
+    text-align: center;
+    display: block;
+    width: 150px;
+    height: auto;
+}
+
+.followBtn:hover {
+    color: #f5ffef;
+    background-color: #658aa7;
+    width: 150px;
+    text-align: center;
+    alignment: center;
+}
