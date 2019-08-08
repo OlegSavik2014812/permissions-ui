@@ -15,7 +15,8 @@ class UsersContainer extends React.Component {
                 <Preloader/> :
                 <Users users={this.props.users}
                        deleteUser={this.props.deleteUser}
-                token = {this.props.token}/>
+                       token={this.props.token}
+                       permissions={this.props.permission}/>
         )
 
     }
@@ -25,7 +26,8 @@ let mapStateToProps = (state) => {
     return {
         users: state.userPage.users,
         token: state.auth.token,
-        isFetching: state.userPage.isFetching
+        isFetching: state.userPage.isFetching,
+        permissions: [...state.auth.permissions]
     }
 };
 export default connect(mapStateToProps, {getUsers, deleteUser})(UsersContainer);

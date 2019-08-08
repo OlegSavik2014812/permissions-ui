@@ -5,9 +5,8 @@ const Header = (props) => {
     return (
         <header className={style.header}>
             <div className={style.loginBlock}>
-                <div className={style.headerNavigation}>
-                    {props.login}
-                </div>
+                {props.login}
+                {props.permissions.map(perm => <div>{perm}</div>)}
             </div>
         </header>
     );

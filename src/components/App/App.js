@@ -5,6 +5,7 @@ import NavBar from "./NavBar/NavBar";
 import {Route} from "react-router-dom";
 import Login from "./Login/Login";
 import HeaderContainer from "./Header/HeaderContainer";
+import ProfileContainer from "./Profile/ProfileContainer";
 
 const App = () => (
     <div className='app-wrapper'>
@@ -13,6 +14,7 @@ const App = () => (
         <div className='app-wrapper-content'>
             <Route path='/login' render={() => <Login/>}/>
             <Route path='/users' render={() => <UsersContainer/>}/>
+            <Route path='/profile/:userId?' render={() => <ProfileContainer/>}/>
         </div>
     </div>
 );

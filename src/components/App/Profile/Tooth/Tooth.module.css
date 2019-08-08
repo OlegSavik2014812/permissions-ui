@@ -1,0 +1,47 @@
+.toothImage {
+    width: 150px;
+    height: auto;
+    border-radius: 20px;
+}
+
+.tooth {
+    background-color: #e0e4e2;
+    margin: 20px;
+    border-width: 20px;
+    border-color: #1b2637;
+}
+
+.gridContainer {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-template-rows: 65% 35%;
+    grid-template-areas: "toothImage activity" "toothInformation activity";
+}
+
+.toothImage {
+    grid-area: toothImage;
+}
+
+.toothInformation {
+    grid-area: toothInformation;
+}
+
+.activity {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "complaints treatments";
+    grid-area: activity;
+}
+
+.complaints {
+    grid-area: complaints;
+    height: 300px;
+    overflow: auto;
+}
+
+.treatments {
+    grid-area: treatments;
+    height: 300px;
+    overflow: auto;
+}

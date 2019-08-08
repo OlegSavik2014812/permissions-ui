@@ -7,6 +7,9 @@ const instance = axios.create({
     }
 });
 export const usersAPI = {
+    getByLogin(login) {
+        return instance.get(`/users/user?name=${login}`)
+    },
     getUsers() {
         return instance.get('/users')
             .then(response => {
@@ -16,15 +19,12 @@ export const usersAPI = {
     },
 
     deleteById(userId, token) {
-        debugger;
         return instance.get(`/users/delete/${userId}`, {
             headers: {
                 'Authorization': 'Token_' + token
             }
         })
     }
-
-
 };
 export const authAPI = {
     signIn(login, password) {
@@ -47,5 +47,10 @@ export const groupAPI = {
     },
     findById(id) {
         return instance.get(`/groups/${id}`);
+    }
+};
+export const teethAPI = {
+    getUserTeeth(userId) {
+        return instance.get(`/teeth/${userId}`);
     }
 }

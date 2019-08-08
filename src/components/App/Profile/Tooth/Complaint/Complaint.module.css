@@ -1,0 +1,18 @@
+.complaint {
+    margin: 10px;
+    padding: 25px;
+    background-color: #ffdede;
+    border-radius: 20px;
+}
+
+.complaint .date {
+    text-align: right;
+    color: #7a7a7a;
+    font-style: italic;
+    font-size: 12px;
+}
+
+.complaint .description {
+    font-family: "Times New Roman", cursive;
+    font-size: 15px;
+}
