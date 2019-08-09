@@ -1,5 +1,5 @@
 import React from 'react';
-import preloader from "./../../../assets/gifs/coges.gif";
+import preloader from "../../../assets/gifs/coges.gif";
 import style from './Preloader.module.css'
 
 let Preloader = () => {

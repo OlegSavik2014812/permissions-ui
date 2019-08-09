@@ -5,8 +5,14 @@ const Header = (props) => {
     return (
         <header className={style.header}>
             <div className={style.loginBlock}>
-                {props.login}
-                {props.permissions.map(perm => <div>{perm}</div>)}
+                {props.login ?
+                    <>
+                        <div onClick={() => props.logOut()}>LogOut</div>
+                        {props.login}
+                        {props.permissions.map(perm => <div>{perm}</div>)}
+                    </>
+                    : ""
+                }
             </div>
         </header>
     );

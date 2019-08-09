@@ -3,8 +3,11 @@ import {authAPI, usersAPI} from "../../api/api";
 const SET_AUTH_INFO = 'SET_AUTH_INFO';
 const SET_FETCHING = 'SET_FETCHING';
 const SET_PERMISSIONS = 'SET_PERMISSIONS';
+const SET_USER_AUTH = 'SET_USER_AUTH';
+const LOGOUT = 'LOGOUT';
 
 let initialState = {
+    userId: null,
     login: null,
     token: null,
     groupName: null,
@@ -14,17 +17,29 @@ let initialState = {
 const authReducer = (state = initialState, action) => {
     let stateCopy = {...state};
     switch (action.type) {
-        case SET_AUTH_INFO: {
-            stateCopy.login = action.login;
-            stateCopy.token = action.token;
-            break;
-        }
         case SET_FETCHING: {
             stateCopy.isFetching = action.isFetching;
             break;
         }
         case SET_PERMISSIONS: {
+            stateCopy.userId = action.userId;
             stateCopy.permissions = [...action.permissions];
+            break;
+        }
+        case SET_USER_AUTH: {
+            stateCopy.permissions = [...action.payload.permissions];
+            stateCopy.userId = action.payload.userId;
+            stateCopy.login = action.payload.login;
+            stateCopy.token = action.payload.token;
+            stateCopy.groupName = action.payload.groupName;
+            break
+        }
+        case LOGOUT: {
+            stateCopy.permissions = null;
+            stateCopy.userId = null;
+            stateCopy.login = null;
+            stateCopy.token = null;
+            stateCopy.groupName = null;
             break;
         }
         default: {
@@ -37,25 +52,46 @@ const authReducer = (state = initialState, action) => {
 
 export const setAuthInfo = (login, token) => ({type: SET_AUTH_INFO, login, token});
 export const turnFetching = (isFetching) => ({type: SET_FETCHING, isFetching});
-export const setPermissions = (permissions) => ({type: SET_PERMISSIONS, permissions});
+export const setRestUserData = (userId, permissions) => ({type: SET_PERMISSIONS, userId, permissions});
+export const setUserData = (userId, login, token, groupName, permissions) => ({
+    type: SET_USER_AUTH,
+    payload: {userId, login, token, groupName, permissions}
+});
 
+export const logOut = () => ({type: LOGOUT})
 export const signIn = (login, password) => {
     return (dispatch) => {
-        debugger;
         dispatch(turnFetching(true));
         authAPI.signIn(login, password)
             .then(response => response.data)
             .then(data => {
-                debugger;
                 let login1 = data.login;
                 let token = data.token;
-                dispatch(setAuthInfo(login1, token));
+                usersAPI.getByLogin(login1)
+                    .then(response => {
+                        dispatch(setUserData(response.data.id, login1, token, response.data.groupName, response.data.permissions));
+                        dispatch(turnFetching(false));
+                    });
             });
-        usersAPI.getByLogin(login)
-            .then(response => {
-                debugger;
-                dispatch(setPermissions(response.data.permissions))
+
+    };
+};
+export const signUp = (login, password) => {
+    return (dispatch) => {
+        dispatch(turnFetching(true));
+        authAPI.signUp(login, password)
+            .then(response => response.data)
+            .then(data => {
+                let login1 = data.login;
+                let token = data.token;
+                usersAPI.getByLogin(login1)
+                    .then(response => {
+
+                        dispatch(setUserData(response.data.id, login1, token, response.data.groupName, response.data.permissions));
+                        dispatch(turnFetching(false));
+                    });
             });
+
     };
 };
 
@@ -63,19 +99,8 @@ export const getUserPermissions = (userId) => {
     return (dispatch) => {
         dispatch(turnFetching(true));
         usersAPI.getById(userId).then(response => {
-            dispatch(setPermissions(response))
+            dispatch(setRestUserData(response))
         })
     }
-}
-
-export const signUp = (login, password) => {
-    return (dispatch) => {
-        dispatch(turnFetching(true));
-        authAPI.signUp(login, password)
-            .then(data => {
-                dispatch(setAuthInfo(data.login, data.token));
-                dispatch(turnFetching(false));
-            });
-    };
 };
 export default authReducer;

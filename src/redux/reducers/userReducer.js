@@ -11,7 +11,6 @@ const userReducer = (state = initialState, action) => {
     let stateCopy = {...state};
     switch (action.type) {
         case SET_USERS: {
-            debugger;
             stateCopy.users = [...action.users];
             break;
         }
@@ -44,11 +43,9 @@ export const getUsers = () => {/*get users thunk*/
 
 export const deleteUser = (userId, token) => {
     return (dispatch) => {
-        debugger;
         dispatch(turnFetching(true));
         usersAPI.deleteById(userId, token)
-            .then(response => {
-                debugger;
+            .then(() => {
                 dispatch(getUsers());
                 dispatch(turnFetching(false));
             })

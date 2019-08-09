@@ -11,7 +11,6 @@ const teethReducer = (state = initialState, action) => {
     let stateCopy = {...state};
     switch (action.type) {
         case SET_TEETH: {
-            debugger;
             stateCopy.teeth = [...action.teeth];
             break;
         }

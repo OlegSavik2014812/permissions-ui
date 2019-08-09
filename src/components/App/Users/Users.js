@@ -3,7 +3,6 @@ import style from './Users.module.css';
 import User from "./User/User";
 
 const Users = (props) => {
-    debugger;
     return (
         <div>
             <div className={style.userWrapper}>
@@ -18,8 +17,7 @@ const Users = (props) => {
                     }
                 </div>
             </div>
-        </div>)
-        ;
+        </div>
+    );
 };
-
 export default Users;

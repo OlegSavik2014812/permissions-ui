@@ -7,22 +7,21 @@ import Tooth from "./Tooth/Tooth";
 
 class ProfileContainer extends React.Component {
     componentDidMount() {
-        debugger;
         let matchedUserId = this.props.match.params.userId;
         this.props.getUserTeeth(matchedUserId);
     }
 
     render() {
         return (<div>
-                {this.props.teeth.map(tooth => <Tooth tooth={tooth}/>)}
-            </div>
-        )
+            <h1>{this.props.login}'s Profile</h1>
+            {this.props.teeth.map(tooth => <Tooth tooth={tooth}/>)}
+        </div>)
     }
-
 }
 
 let mapStateToProps = (state) => ({
-    teeth: state.teethPage.teeth
+    teeth: state.teethPage.teeth,
+    login: state.auth.login
 });
 
 export default compose(

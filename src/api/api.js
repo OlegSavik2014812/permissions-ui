@@ -13,7 +13,6 @@ export const usersAPI = {
     getUsers() {
         return instance.get('/users')
             .then(response => {
-                debugger;
                 return response.data;
             })
     },

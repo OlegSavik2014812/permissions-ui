@@ -1,8 +1,10 @@
 import React from "react";
 import {connect} from "react-redux";
 import {deleteUser, getUsers} from "../../../redux/reducers/userReducer";
-import Preloader from "../../commons/Preloader/Preloader";
+import Preloader from "../../common/Preloader/Preloader";
 import Users from "./Users";
+import {compose} from "redux";
+import withPatientRedirect from "../../../hoc/withPatientPermission";
 
 class UsersContainer extends React.Component {
     componentDidMount() {
@@ -23,11 +25,14 @@ class UsersContainer extends React.Component {
 }
 
 let mapStateToProps = (state) => {
+
     return {
         users: state.userPage.users,
-        token: state.auth.token,
         isFetching: state.userPage.isFetching,
-        permissions: [...state.auth.permissions]
     }
+
 };
-export default connect(mapStateToProps, {getUsers, deleteUser})(UsersContainer);
+export default compose(
+    withPatientRedirect,
+    connect(mapStateToProps, {getUsers, deleteUser})
+)(UsersContainer);

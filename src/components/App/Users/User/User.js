@@ -1,14 +1,16 @@
 import React from 'react';
 import style from './User.module.css'
+import {NavLink} from "react-router-dom";
 
 const User = (props) => {
-    debugger;
     let user = props.user;
     let perms = props.permissions ? props.permissions : [];
     return (
         <div key={user.id} className={style.userItem}>
             <div className={style.information}>
-                <div className={style.userFullName}>{user.login}</div>
+                <NavLink to={`/profile/${user.id}`}>
+                    <div className={style.userFullName}>{user.login}</div>
+                </NavLink>
                 <div className={style.status}>{user.groupName}</div>
             </div>
             {
