@@ -3,28 +3,31 @@ import {compose} from "redux";
 import {withRouter} from "react-router-dom";
 import {connect} from "react-redux";
 import {getUserTeeth} from "../../../redux/reducers/teethReducer";
-import Tooth from "./Tooth/Tooth";
+import {getUserById} from "../../../redux/reducers/profileReducer";
+import Profile from "./Profile";
 
 class ProfileContainer extends React.Component {
     componentDidMount() {
         let matchedUserId = this.props.match.params.userId;
+        this.props.getUserById(matchedUserId);
         this.props.getUserTeeth(matchedUserId);
     }
 
     render() {
-        return (<div>
-            <h1>{this.props.login}'s Profile</h1>
-            {this.props.teeth.map(tooth => <Tooth tooth={tooth}/>)}
-        </div>)
+        return (
+            <div>
+                <Profile user={this.props.user} teeth={this.props.teeth}/>
+            </div>
+        )
     }
 }
 
 let mapStateToProps = (state) => ({
+    user: state.profilePage.selectedUser,
     teeth: state.teethPage.teeth,
-    login: state.auth.login
 });
 
 export default compose(
     withRouter,
-    connect(mapStateToProps, {getUserTeeth})
+    connect(mapStateToProps, {getUserTeeth, getUserById})
 )(ProfileContainer);

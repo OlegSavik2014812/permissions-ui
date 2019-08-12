@@ -23,6 +23,9 @@ export const usersAPI = {
                 'Authorization': 'Token_' + token
             }
         })
+    },
+    getById(id) {
+        return instance.get(`/users/${`${id}`}`)
     }
 };
 export const authAPI = {
