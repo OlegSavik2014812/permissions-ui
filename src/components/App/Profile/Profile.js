@@ -1,7 +1,8 @@
 import React, {Component} from "react";
-import Tooth from "./Tooth/Tooth";
 import human_jaws from "./../../../assets/images/teeth/human_jaws.jpg";
+import {Translate} from "react-translated";
 import Popup from "reactjs-popup";
+import Tooth from "./Tooth/Tooth";
 
 class Profile extends Component {
     constructor(props) {
@@ -35,7 +36,8 @@ class Profile extends Component {
     }
 
     render() {
-        let username = this.props.user ? this.props.user.login + `'s Profile` : '';
+        let username = this.props.user ?
+            <Translate text='profile {name}' data={{name: this.props.user.login}}/> : '';
 
 
         return (<div>

@@ -8,18 +8,19 @@ let initialState = {
     isFetching: false,
 };
 const userReducer = (state = initialState, action) => {
-    let stateCopy = {...state};
+    let stateCopy = state;
     switch (action.type) {
         case SET_USERS: {
+            stateCopy = {...state};
             stateCopy.users = [...action.users];
             break;
         }
         case SET_FETCHING: {
+            stateCopy = {...stateCopy};
             stateCopy.isFetching = action.isFetching;
             break;
         }
         default: {
-            stateCopy = state;
             break;
         }
     }

@@ -1,15 +1,11 @@
 import React from "react";
 import Treatment from "./Treatment/Treatment";
 import Complaint from "./Complaint/Complaint";
-
-import Molar from './../../../../assets/images/teeth/Molar.png'
-import Canine from './../../../../assets/images/teeth/Canine.png'
-import Incisor from './../../../../assets/images/teeth/Incisor.png'
-import PreMolar from './../../../../assets/images/teeth/PreMolar.png'
 import good from './../../../../assets/images/teeth/goodTooth.png'
 import bad from './../../../../assets/images/teeth/badTooth.png'
 
 import style from './Tooth.module.css'
+import {Translate} from "react-translated";
 
 const Tooth = (props) => {
     let toothType = props.tooth.toothType;
@@ -48,9 +44,9 @@ const Tooth = (props) => {
                     <img className={style.toothImage} src={toothImage} alt={toothType}/>
                 </div>
                 <div className={style.toothInformation}>
-                    <h2> {toothType}</h2>
-                    <p>Tooth general number {props.tooth.toothNumber}</p>
-                    <p>Patient id {props.tooth.userId}</p>
+                    <h2><Translate text='type {type}' data={{type: toothType}}/></h2>
+                    <p><Translate text='generalNumber {number}' data={{number: props.tooth.toothNumber}}/></p>
+                    <p><Translate text='patientId {id}' data={{id: props.tooth.userId}}/></p>
                 </div>
                 <div className={style.activity}>
                     <div className={style.complaints}>

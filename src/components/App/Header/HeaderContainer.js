@@ -6,7 +6,10 @@ import {logOut} from "../../../redux/reducers/authReducer";
 const HeaderContainer = props => (<Header {...props}/>);
 
 const mapStateToProps = (state) => ({
-    login: state.auth.login,
-    permissions: state.auth.permissions ? [...state.auth.permissions] : []
-});
+        locale: state.lang.locale,
+        login: state.auth.login,
+        permissions:
+            state.auth.permissions ? [...state.auth.permissions] : []
+    })
+;
 export default connect(mapStateToProps, {logOut})(HeaderContainer);

@@ -15,18 +15,21 @@ let initialState = {
     isFetching: false
 };
 const authReducer = (state = initialState, action) => {
-    let stateCopy = {...state};
+    let stateCopy = state;
     switch (action.type) {
         case SET_FETCHING: {
+            stateCopy = {...stateCopy};
             stateCopy.isFetching = action.isFetching;
             break;
         }
         case SET_PERMISSIONS: {
+            stateCopy = {...state};
             stateCopy.userId = action.userId;
             stateCopy.permissions = [...action.permissions];
             break;
         }
         case SET_USER_AUTH: {
+            stateCopy = {...state};
             stateCopy.permissions = [...action.payload.permissions];
             stateCopy.userId = action.payload.userId;
             stateCopy.login = action.payload.login;
@@ -35,6 +38,7 @@ const authReducer = (state = initialState, action) => {
             break
         }
         case LOGOUT: {
+            stateCopy = {...state};
             stateCopy.permissions = null;
             stateCopy.userId = null;
             stateCopy.login = null;
@@ -43,14 +47,12 @@ const authReducer = (state = initialState, action) => {
             break;
         }
         default: {
-            stateCopy = state;
             break;
         }
     }
     return stateCopy;
 };
 
-export const setAuthInfo = (login, token) => ({type: SET_AUTH_INFO, login, token});
 export const turnFetching = (isFetching) => ({type: SET_FETCHING, isFetching});
 export const setRestUserData = (userId, permissions) => ({type: SET_PERMISSIONS, userId, permissions});
 export const setUserData = (userId, login, token, groupName, permissions) => ({
@@ -58,7 +60,7 @@ export const setUserData = (userId, login, token, groupName, permissions) => ({
     payload: {userId, login, token, groupName, permissions}
 });
 
-export const logOut = () => ({type: LOGOUT})
+export const logOut = () => ({type: LOGOUT});
 export const signIn = (login, password) => {
     return (dispatch) => {
         dispatch(turnFetching(true));

@@ -4,22 +4,25 @@ import style from '../Auth.module.css'
 import {connect} from "react-redux";
 import {NavLink, Redirect} from "react-router-dom";
 import {signUp} from "../../../../redux/reducers/authReducer";
+import {Translate} from "react-translated";
+
+const localize = (key) => <Translate text={key}/>;
 
 const SignUpForm = (props) => {
     return (
         <div>
             <form onSubmit={props.handleSubmit}>
                 <div>
-                    <Field component={"input"} name={"login"} placeholder={"Login"}/>
+                    <Field component={"input"} name={"login"} placeholder={localize('loginPlaceholder')}/>
                 </div>
                 <div>
                     <Field component={"input"} name={"password"} type={"password"}
-                           placeholder={"Password"}/>
+                           placeholder={localize('passwordPlaceholder')}/>
                 </div>
                 <div>
-                    <button>Sign Up</button>
+                    <button>{localize('signUp')}</button>
                 </div>
-                <NavLink to={'login'}>To sign in</NavLink>
+                <NavLink to={'login'}>{localize('toSignIn')}</NavLink>
                 {props.error !== null ?
                     <div className={style.formError}>
                         {props.error}
@@ -39,7 +42,7 @@ const SignUp = (props) => {
     return (
         props.token ? <Redirect to={"/users"}/> :
             <div className={style.signInWrapper}>
-                <div className={style.formHeader}>Sign In</div>
+                <div className={style.formHeader}>{localize('signUp')}</div>
                 <SignUpFormReduxForm onSubmit={onSubmit}/>
             </div>
     )

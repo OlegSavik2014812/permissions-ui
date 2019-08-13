@@ -8,18 +8,19 @@ let initialState = {
     isFetching: false,
 };
 const teethReducer = (state = initialState, action) => {
-    let stateCopy = {...state};
+    let stateCopy = state;
     switch (action.type) {
         case SET_TEETH: {
+            stateCopy = {...state};
             stateCopy.teeth = [...action.teeth];
             break;
         }
         case SET_FETCHING: {
+            stateCopy = {...stateCopy};
             stateCopy.isFetching = action.isFetching;
             break;
         }
         default: {
-            stateCopy = state;
             break;
         }
     }

@@ -8,18 +8,19 @@ let initialState = {
     isFetching: false
 };
 const profileReducer = (state = initialState, action) => {
-    let stateCopy = {...state};
+    let stateCopy = state;
     switch (action.type) {
         case SET_USER: {
+            stateCopy = {...state};
             stateCopy.selectedUser = {...action.payload};
             break;
         }
         case SET_FETCHING: {
+            stateCopy = {...stateCopy};
             stateCopy.isFetching = action.isFetching;
             break;
         }
         default: {
-            stateCopy = state;
             break;
         }
     }
