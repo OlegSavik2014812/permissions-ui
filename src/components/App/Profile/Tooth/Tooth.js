@@ -33,7 +33,7 @@ const Tooth = (props) => {
         }
     }*/
 
-    toothImage = props.tooth.complaints.length === 0 ? good : bad;
+    let toothImage = props.tooth.complaints.length === 0 ? good : bad;
 
     let type = localizeTextWithParams("type {type}", {type: toothType});
     let number = localizeTextWithParams("generalNumber {number}", {number: props.tooth.toothNumber});
