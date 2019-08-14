@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './Header.module.css';
-import {Translate} from "react-translated";
 import LocaleSwitcher from "../LocaleSwitcher/LocaleSwitcher";
+import {localizeText} from "../../../utils/translator/Translator";
 
 const Header = (props) => {
     return (
@@ -11,7 +11,7 @@ const Header = (props) => {
                 {props.login ?
                     <>
                         <div onClick={() => props.logOut()}>
-                            <Translate text='signOut'/>
+                            {localizeText("signOut")}
                         </div>
                         {props.login}
                         {props.permissions.map(perm => <div>{perm}</div>)}

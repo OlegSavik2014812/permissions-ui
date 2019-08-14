@@ -1,4 +1,8 @@
 export default {
+    'lang': {
+        en: 'Language',
+        ru: 'Язык'
+    },
     'english': {
         en: 'English',
         ru: 'Английский'
@@ -15,7 +19,6 @@ export default {
         ru: 'Введите пароль',
         en: 'Enter password'
     },
-
     'signIn': {
         ru: 'Войти',
         en: 'Sign In'

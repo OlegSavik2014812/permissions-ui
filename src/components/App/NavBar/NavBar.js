@@ -1,14 +1,14 @@
 import React from 'react';
 import style from './NavBar.module.css';
 import {NavLink} from "react-router-dom";
-import {Translate} from "react-translated";
+import {localizeText} from "../../../utils/translator/Translator";
 
-const NavBar = (props) => {
+const NavBar = () => {
     return (
         <nav className={style.nav}>
             <ul>
                 <NavLink to="/users">
-                    <li><Translate text='users'/></li>
+                    <li>{localizeText("users")}</li>
                 </NavLink>
             </ul>
         </nav>

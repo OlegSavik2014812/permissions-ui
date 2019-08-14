@@ -1,16 +1,19 @@
 import React from "react";
 import style from './Treatment.module.css'
-import {Translate} from "react-translated";
+import {localizeTextWithParams} from "../../../../../utils/translator/Translator";
 
 const Treatment = (props) => {
-    return (
+    let localizedDate = localizeTextWithParams("date {date}", {date: props.treatment.date});
+    let localizedDescription = localizeTextWithParams("Description: {description}", {description: props.treatment.description});
+    let localizedCost = localizeTextWithParams("cost {cost}", {cost: props.treatment.cost});
 
+    return (
         <div className={style.treatment}>
-            <div className={style.date}><Translate text='date {date}' data={{date: props.treatment.date}}/></div>
-            <div className={style.description}><Translate text='Description: {description}'
-                                                          data={{description: props.treatment.description}}/></div>
-            <div className={style.cost}><Translate text='cost {cost}'
-                                                   data={{cost: props.treatment.cost}}/></div>
+            {localizedDate}
+            {localizedDescription}
+            <div className={style.cost}>
+                {localizedCost}
+            </div>
         </div>
     )
 };

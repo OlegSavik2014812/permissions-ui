@@ -1,8 +1,8 @@
 import React, {Component} from "react";
 import human_jaws from "./../../../assets/images/teeth/human_jaws.jpg";
-import {Translate} from "react-translated";
 import Popup from "reactjs-popup";
 import Tooth from "./Tooth/Tooth";
+import {localizeTextWithParams} from "../../../utils/translator/Translator";
 
 class Profile extends Component {
     constructor(props) {
@@ -26,7 +26,7 @@ class Profile extends Component {
     getUserTooth(toothNumber) {
 
         let tooth = this.props.teeth.find(tooth => tooth.toothNumber === toothNumber);
-        debugger;
+    debugger;
         if (tooth) {
             this.setState({tooth: tooth});
             this.openModal();
@@ -37,7 +37,7 @@ class Profile extends Component {
 
     render() {
         let username = this.props.user ?
-            <Translate text='profile {name}' data={{name: this.props.user.login}}/> : '';
+            localizeTextWithParams("profile {name}", {name: this.props.user.login}) : '';
 
 
         return (<div>

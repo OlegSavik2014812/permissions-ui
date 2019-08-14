@@ -8,7 +8,7 @@ const langReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_LANG: {
             stateCopy = {...stateCopy};
-            stateCopy.lang = action.lang;
+            stateCopy.locale = action.lang;
             break;
         }
         default: {

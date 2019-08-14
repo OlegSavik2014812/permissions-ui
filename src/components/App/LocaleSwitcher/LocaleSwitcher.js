@@ -1,30 +1,36 @@
 import React from "react";
-import {Translator} from "react-translated";
 import {connect} from "react-redux";
 import {setLang} from "../../../redux/reducers/langReducer";
-
-const localize = (text) => <Translator>
-    {({translate}) => (
-        <option
-            placeholder={translate({
-                text: text
-            })}
-        />
-    )}</Translator>;
+import MenuItem from "@material-ui/core/MenuItem";
+import Menu from "@material-ui/core/Menu";
+import Button from "@material-ui/core/Button";
+import PopupState, {bindMenu, bindTrigger} from 'material-ui-popup-state';
+import {localizeText} from "../../../utils/translator/Translator";
 
 class LocaleSwitcher extends React.Component {
-    handleChange(e) {
+
+    handleChange(fun, lang) {
+        fun();
+        this.props.setLang(lang);
     }
 
     render() {
         return (
-            <p>
-                <span>Switch Locale:</span>
-                <select onChange={this.handleChange}>
-                    <option value={'en'}>{localize('english')}</option>
-                    <option value={'ru'}>{localize('russian')}</option>
-                </select>
-            </p>
+            <PopupState variant="popover" popupId="demo-popup-menu">
+                {popupState => (
+                    <React.Fragment>
+                        <Button variant="contained" {...bindTrigger(popupState)}>
+                            {localizeText("lang")}
+                        </Button>
+                        <Menu {...bindMenu(popupState)}>
+                            <MenuItem
+                                onClick={() => this.handleChange(popupState.close, 'en')}>{localizeText("english")}</MenuItem>
+                            <MenuItem
+                                onClick={() => this.handleChange(popupState.close, 'ru')}>{localizeText("russian")}</MenuItem>
+                        </Menu>
+                    </React.Fragment>
+                )}
+            </PopupState>
         );
     }
 }
