@@ -7,16 +7,19 @@ import HeaderContainer from "./Header/HeaderContainer";
 import ProfileContainer from "./Profile/ProfileContainer";
 import SignUp from "./Auth/SignUp/SignUp";
 import UsersContainer from "./Users/UsersContainer";
-import {connect} from "react-redux";
 import {Provider} from "react-translated";
 import messages from './../../lang/lang';
+import CssBaseline from "@material-ui/core/CssBaseline";
+import Container from "@material-ui/core/Container";
+import {connect} from "react-redux";
 
 class AppContainer extends Component {
     render() {
         let locale = this.props.lang;
         return (
             <Provider language={locale} translation={messages}>
-                <div className='app-wrapper'>
+                <CssBaseline/>
+                <Container maxWidth="xl">
                     <HeaderContainer/>
                     <NavBar/>
                     <div className='app-wrapper-content'>
@@ -25,7 +28,7 @@ class AppContainer extends Component {
                         <Route path='/users' render={() => <UsersContainer/>}/>
                         <Route path='/profile/:userId?' render={() => <ProfileContainer/>}/>
                     </div>
-                </div>
+                </Container>
             </Provider>
         );
     }

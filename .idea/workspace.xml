@@ -1,23 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c680f83c-2b25-4202-9965-af606419a122" name="Default Changelist" comment="git refactor code fix redirect to profile page">
-      <change afterPath="$PROJECT_DIR$/src/components/App/Auth/AuthUtils.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/translator/Translator.js" afterDir="false" />
+    <list default="true" id="c680f83c-2b25-4202-9965-af606419a122" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/App/Auth/Login/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/Auth/Login/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/App/Auth/SignUp/SignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/Auth/SignUp/SignUp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/App/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/App/Header/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/Header/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/App/LocaleSwitcher/LocaleSwitcher.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/LocaleSwitcher/LocaleSwitcher.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/App/NavBar/NavBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/NavBar/NavBar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/App/Profile/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/Profile/Profile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/App/Profile/Tooth/Complaint/Complaint.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/Profile/Tooth/Complaint/Complaint.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/App/Profile/Tooth/Tooth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/Profile/Tooth/Tooth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/App/Profile/Tooth/Treatment/Treatment.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/Profile/Tooth/Treatment/Treatment.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lang/lang.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lang/lang.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/reducers/langReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/langReducer.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -50,7 +40,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2019.1.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2019.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -108,7 +98,7 @@
       <workItem from="1565336429736" duration="15210000" />
       <workItem from="1565594209881" duration="13293000" />
       <workItem from="1565677841460" duration="19672000" />
-      <workItem from="1565768868439" duration="4440000" />
+      <workItem from="1565768868439" duration="15324000" />
     </task>
     <task id="LOCAL-00001" summary="create permissions-ui project for testing permissions java project, using react, redux, redux-thunk, redux-form&#10;add base logic(get users, login, delete users)">
       <created>1565103136094</created>
@@ -138,7 +128,21 @@
       <option name="project" value="LOCAL" />
       <updated>1565360773210</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="fix bugs with localization, add material design">
+      <created>1565773485358</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1565773485358</updated>
+    </task>
+    <task id="LOCAL-00006" summary="fix bugs with localization, add material design">
+      <created>1565773522148</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1565773522148</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -159,6 +163,19 @@
     <MESSAGE value="create permissions-ui project for testing permissions java project, using react, redux, redux-thunk, redux-form&#10;add base logic(get users, login, delete users)" />
     <MESSAGE value="add tooth logic" />
     <MESSAGE value="git refactor code fix redirect to profile page" />
-    <option name="LAST_COMMIT_MESSAGE" value="git refactor code fix redirect to profile page" />
+    <MESSAGE value="fix bugs with localization, add material design" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix bugs with localization, add material design" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/components/App/App.js</url>
+          <line>22</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
