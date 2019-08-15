@@ -15,19 +15,14 @@ class ProfileContainer extends React.Component {
 
     render() {
         return (
-            <div>
-                <Profile user={this.props.user} teeth={this.props.teeth}/>
-            </div>
-        )
+            <Profile user={this.props.user} teeth={this.props.teeth}/>
+            )
     }
 }
 
-let mapStateToProps = (state) => ({
-    user: state.profilePage.selectedUser,
-    teeth: state.teethPage.teeth,
-});
-
+let mapStateToProps = (state) => ({user: state.profilePage.selectedUser, teeth: state.teethPage.teeth,});
 export default compose(
     withRouter,
     connect(mapStateToProps, {getUserTeeth, getUserById})
-)(ProfileContainer);
+)
+(ProfileContainer);

@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c680f83c-2b25-4202-9965-af606419a122" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/App/Profile/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/Profile/Profile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/App/Profile/ProfileContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/Profile/ProfileContainer.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -96,7 +96,7 @@
       <workItem from="1565594209881" duration="13293000" />
       <workItem from="1565677841460" duration="19672000" />
       <workItem from="1565768868439" duration="15324000" />
-      <workItem from="1565853743706" duration="4998000" />
+      <workItem from="1565853743706" duration="5255000" />
     </task>
     <task id="LOCAL-00001" summary="create permissions-ui project for testing permissions java project, using react, redux, redux-thunk, redux-form&#10;add base logic(get users, login, delete users)">
       <created>1565103136094</created>
@@ -147,7 +147,14 @@
       <option name="project" value="LOCAL" />
       <updated>1565856936352</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="refactor toothMap">
+      <created>1565858760793</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1565858760793</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -172,7 +179,8 @@
     <MESSAGE value="git refactor code fix redirect to profile page" />
     <MESSAGE value="fix bugs with localization, add material design" />
     <MESSAGE value="refactor popover" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor popover" />
+    <MESSAGE value="refactor toothMap" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor toothMap" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

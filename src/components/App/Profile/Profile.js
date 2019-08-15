@@ -8,26 +8,26 @@ import Popover from "@material-ui/core/Popover";
 class Profile extends Component {
     state = {
         tooth: null,
-        anchorEl: null
+        anchor: null
     };
 
     handleClick = (event) => {
-        let toothNumber = parseInt(event.currentTarget.alt);
+        let anchor = event.currentTarget;
+        let toothNumber = parseInt(anchor.alt);
         let tooth = this.props.teeth.find(tooth => toothNumber === tooth.toothNumber);
         if (tooth) {
             this.setState({tooth: tooth});
-            this.setState({anchorEl: event.currentTarget});
+            this.setState({anchor: anchor});
         }
+    };
 
+    handleClose = () => {
+        this.setState({anchor: null});
     };
 
     render() {
-        let username = this.props.user ?
-            localizeTextWithParams("profile {name}", {name: this.props.user.login}) : '';
-        const handleClose = () => {
-            this.setState({anchorEl: null});
-        };
-        const open = Boolean(this.state.anchorEl);
+        let username = this.props.user ? localizeTextWithParams("profile {name}", {name: this.props.user.login}) : '';
+        const open = Boolean(this.state.anchor);
         const id = open ? 'simple-popover' : undefined;
         let coords = [
             "240,263,16", "242,227,16", "248,193,16", "259,161,14",
@@ -46,13 +46,13 @@ class Profile extends Component {
         });
         return (<div>
                 <h1>{username}</h1>
-                <Popover id={id} open={open} anchorEl={this.state.anchorEl} onClose={handleClose}
+                <Popover id={id} open={open} anchorEl={this.state.anchor} onClose={this.handleClose}
                          anchorOrigin={{vertical: 'center', horizontal: 'center',}}
                          transformOrigin={{vertical: 'top', horizontal: 'bottom',}}>
                     <Tooth tooth={this.state.tooth}/>
                 </Popover>
                 <div>
-                    <img src={human_jaws} alt={"jaws"} useMap="#image-map"/>
+                    <img src={human_jaws} alt={"jaws"} useMap={"#image-map"}/>
                     <map name="image-map">{toothAreaMap}</map>
                 </div>
             </div>

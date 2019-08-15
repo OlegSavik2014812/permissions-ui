@@ -48,7 +48,7 @@ export default {
         ru: 'Дата: {date}',
         en: 'Date: {date}'
     },
-    'Description: {description}': {
+    'description: {description}': {
         ru: 'Описание: {description}',
         en: 'Description: {description}'
     },
