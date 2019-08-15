@@ -6,6 +6,7 @@ import bad from './../../../../assets/images/teeth/badTooth.png'
 
 import style from './Tooth.module.css'
 import {localizeTextWithParams} from "../../../../utils/translator/Translator";
+import ComplainForm from "../ComplaintForm/ComplaintForm";
 
 const Tooth = (props) => {
     let toothType = props.tooth.toothType;
@@ -32,12 +33,23 @@ const Tooth = (props) => {
             break;
         }
     }*/
+    let toothImage = null;
 
-    let toothImage = props.tooth.complaints.length === 0 ? good : bad;
+    let complaints = props.tooth.complaints;
+    let treatments = props.tooth.treatments;
+
+    if (complaints && complaints.length !== 0) {
+        toothImage = bad;
+    } else {
+        toothImage = good;
+    }
+    let complainComponents = complaints ? complaints.map(complaint => <Complaint complaint={complaint}/>) : "";
+    let treatmentsComponents = treatments ? treatments.map(treatment => <Treatment treatment={treatment}/>) : "";
 
     let type = localizeTextWithParams("type {type}", {type: toothType});
     let number = localizeTextWithParams("generalNumber {number}", {number: props.tooth.toothNumber});
     let id = localizeTextWithParams("patientId {id}", {id: props.tooth.userId});
+
     return (
 
         <div className={style.tooth}>
@@ -52,10 +64,11 @@ const Tooth = (props) => {
                 </div>
                 <div className={style.activity}>
                     <div className={style.complaints}>
-                        {props.tooth.complaints.map(complaint => <Complaint complaint={complaint}/>)}
+                        {complainComponents}
+                        <ComplainForm user={props.user} tooth={props.tooth}/>
                     </div>
                     <div className={style.treatments}>
-                        {props.tooth.treatments.map(treatment => <Treatment treatment={treatment}/>)}
+                        {treatmentsComponents}
                     </div>
                 </div>
             </div>

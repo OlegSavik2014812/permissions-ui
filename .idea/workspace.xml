@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c680f83c-2b25-4202-9965-af606419a122" name="Default Changelist" comment="">
+    <list default="true" id="c680f83c-2b25-4202-9965-af606419a122" name="Default Changelist" comment="refactor code">
+      <change afterPath="$PROJECT_DIR$/src/components/App/Profile/ComplaintForm/ComplaintForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/api.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/App/Profile/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/Profile/Profile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/App/Profile/ProfileContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/Profile/ProfileContainer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/App/Profile/Tooth/Tooth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/Profile/Tooth/Tooth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/reducers/teethReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/teethReducer.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,7 +32,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js.last.introduce.type" value="LET" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../team-members" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -96,7 +100,7 @@
       <workItem from="1565594209881" duration="13293000" />
       <workItem from="1565677841460" duration="19672000" />
       <workItem from="1565768868439" duration="15324000" />
-      <workItem from="1565853743706" duration="5255000" />
+      <workItem from="1565853743706" duration="16061000" />
     </task>
     <task id="LOCAL-00001" summary="create permissions-ui project for testing permissions java project, using react, redux, redux-thunk, redux-form&#10;add base logic(get users, login, delete users)">
       <created>1565103136094</created>
@@ -154,7 +158,14 @@
       <option name="project" value="LOCAL" />
       <updated>1565858760793</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="refactor code">
+      <created>1565859163440</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1565859163440</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -180,7 +191,8 @@
     <MESSAGE value="fix bugs with localization, add material design" />
     <MESSAGE value="refactor popover" />
     <MESSAGE value="refactor toothMap" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor toothMap" />
+    <MESSAGE value="refactor code" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor code" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

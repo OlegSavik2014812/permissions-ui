@@ -49,7 +49,7 @@ class Profile extends Component {
                 <Popover id={id} open={open} anchorEl={this.state.anchor} onClose={this.handleClose}
                          anchorOrigin={{vertical: 'center', horizontal: 'center',}}
                          transformOrigin={{vertical: 'top', horizontal: 'bottom',}}>
-                    <Tooth tooth={this.state.tooth}/>
+                    <Tooth tooth={this.state.tooth} user ={this.props.user} />
                 </Popover>
                 <div>
                     <img src={human_jaws} alt={"jaws"} useMap={"#image-map"}/>

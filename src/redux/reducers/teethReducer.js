@@ -30,6 +30,12 @@ const teethReducer = (state = initialState, action) => {
 export const setTeeth = (teeth) => ({type: SET_TEETH, teeth});
 export const turnFetching = (isFetching) => ({type: SET_FETCHING, isFetching});
 
+export const complainOnTooth = (userId, toothNumber, problemDescription) => {
+    return (dispatch) => {
+        teethAPI.postUserTooth({userId, toothNumber})
+            .then(response => teethAPI.postComplain(response.userToothId, problemDescription))
+    }
+};
 
 export const getUserTeeth = (userId) => {/*get users thunk*/
     return (dispatch) => {
