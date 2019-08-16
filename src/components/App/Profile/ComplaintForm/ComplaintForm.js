@@ -1,9 +1,7 @@
 import React, {Component} from 'react'
 
 import {connect} from "react-redux";
-import {signIn} from "../../../../redux/reducers/authReducer";
 import Button from "@material-ui/core/Button";
-import {localizeText} from "../../../../utils/translator/Translator";
 import {complainOnTooth} from "../../../../redux/reducers/teethReducer";
 
 class ComplainForm extends Component {
@@ -21,12 +19,10 @@ class ComplainForm extends Component {
     }
 
     onSubmit = (formData) => {
-    debugger;
         this.props.complainOnTooth(this.state.user.userId, this.state.tooth.toothNumber, formData.complaint)
     };
 
     render() {
-    debugger;
         let tooth = this.props.tooth;
         let user = this.props.user;
         return (
@@ -44,7 +40,7 @@ class ComplainForm extends Component {
                         <textarea name="complaint"/>>
                     </div>
                     <div>
-                        <Button href={""} onClick={this.onSubmit}>{localizeText('signIn')}</Button>
+                        <Button href={""} onClick={this.onSubmit}>Complain</Button>
                     </div>
                 </form>
             </div>

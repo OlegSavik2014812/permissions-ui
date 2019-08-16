@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c680f83c-2b25-4202-9965-af606419a122" name="Default Changelist" comment="refactor code">
-      <change afterPath="$PROJECT_DIR$/src/components/App/Profile/ComplaintForm/ComplaintForm.js" afterDir="false" />
+    <list default="true" id="c680f83c-2b25-4202-9965-af606419a122" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/App/Profile/Tooth/ToothImage/ToothImage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/App/Profile/Tooth/ToothImage/ToothImage.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/api/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/App/Profile/ComplaintForm/ComplaintForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/Profile/ComplaintForm/ComplaintForm.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/App/Profile/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/Profile/Profile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/App/Profile/ProfileContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/Profile/ProfileContainer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/App/Profile/Tooth/Tooth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/Profile/Tooth/Tooth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lang/lang.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lang/lang.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/reducers/teethReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/teethReducer.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,8 +22,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -44,16 +48,17 @@
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2019.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\asavik\WebstormProjects\permissions-ui\src\components\App\Auth" />
-      <recent name="C:\Users\asavik\WebstormProjects\permissions-ui\src\components\App" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\asavik\WebstormProjects\permissions-ui\src\components\App\SignUp" />
       <recent name="C:\Users\asavik\WebstormProjects\permissions-ui\src\components" />
       <recent name="C:\Users\asavik\WebstormProjects\permissions-ui\src\components\App\Users" />
       <recent name="C:\Users\asavik\WebstormProjects\permissions-ui\src\assets\gifs" />
       <recent name="C:\Users\asavik\WebstormProjects\permissions-ui\src\components\commons" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\asavik\WebstormProjects\permissions-ui\src\components\App\Profile\Tooth\ToothImage" />
+      <recent name="C:\Users\asavik\WebstormProjects\permissions-ui\src\components\App\Auth" />
+      <recent name="C:\Users\asavik\WebstormProjects\permissions-ui\src\components\App" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -100,7 +105,8 @@
       <workItem from="1565594209881" duration="13293000" />
       <workItem from="1565677841460" duration="19672000" />
       <workItem from="1565768868439" duration="15324000" />
-      <workItem from="1565853743706" duration="16061000" />
+      <workItem from="1565853743706" duration="16326000" />
+      <workItem from="1565941654872" duration="8928000" />
     </task>
     <task id="LOCAL-00001" summary="create permissions-ui project for testing permissions java project, using react, redux, redux-thunk, redux-form&#10;add base logic(get users, login, delete users)">
       <created>1565103136094</created>
@@ -165,7 +171,14 @@
       <option name="project" value="LOCAL" />
       <updated>1565859163440</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="add complain logic">
+      <created>1565883410731</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1565883410731</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -192,7 +205,8 @@
     <MESSAGE value="refactor popover" />
     <MESSAGE value="refactor toothMap" />
     <MESSAGE value="refactor code" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor code" />
+    <MESSAGE value="add complain logic" />
+    <option name="LAST_COMMIT_MESSAGE" value="add complain logic" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

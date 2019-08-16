@@ -65,9 +65,9 @@ export default {
         ru: 'Порядковый номер: {number}',
         en: 'General number: {number}'
     },
-    'patientId {id}': {
-        ru: 'Номер пользователя: {id}',
-        en: 'Patient id: {id}'
+    'patientName {name}': {
+        ru: 'Имя пациента: {name}',
+        en: 'Patient name: {name}'
     },
 
     'profile {name}': {

@@ -53,15 +53,18 @@ export const groupAPI = {
 };
 export const teethAPI = {
     getUserTeeth(userId) {
-        return instance.get(`/teeth/${userId}`);
+        return instance.get(`/user_teeth/${userId}`);
+    },
+    getToothById(toothId) {
+        return instance.get(`/teeth/${toothId}`)
     },
     postUserTooth(userTooth) {
-        return instance.post(`/teeth`, {
+        return instance.post(`/user_teeth`, {
             userTooth
         })
     },
     postComplain(userToothId, description) {
-        return instance.post('/teeth/complain', {
+        return instance.post('/user_teeth/complain', {
             userToothId, description
         })
     }
