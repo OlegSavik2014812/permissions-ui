@@ -2,15 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c680f83c-2b25-4202-9965-af606419a122" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/App/Profile/Tooth/ToothImage/ToothImage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/App/Profile/Tooth/ToothImage/ToothImage.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/App/Profile/Tooth/ToothContainer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/api/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/App/Auth/Login/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/Auth/Login/Login.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/App/Profile/ComplaintForm/ComplaintForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/Profile/ComplaintForm/ComplaintForm.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/App/Profile/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/Profile/Profile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/App/Profile/ProfileContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/Profile/ProfileContainer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/App/Profile/Tooth/Tooth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/Profile/Tooth/Tooth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lang/lang.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lang/lang.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/reducers/teethReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/teethReducer.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,8 +20,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -39,8 +37,11 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../team-members" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.standard" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.standard" value="" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -106,7 +107,7 @@
       <workItem from="1565677841460" duration="19672000" />
       <workItem from="1565768868439" duration="15324000" />
       <workItem from="1565853743706" duration="16326000" />
-      <workItem from="1565941654872" duration="8928000" />
+      <workItem from="1565941654872" duration="18655000" />
     </task>
     <task id="LOCAL-00001" summary="create permissions-ui project for testing permissions java project, using react, redux, redux-thunk, redux-form&#10;add base logic(get users, login, delete users)">
       <created>1565103136094</created>
@@ -178,7 +179,14 @@
       <option name="project" value="LOCAL" />
       <updated>1565883410731</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="fix human jaws bug">
+      <created>1565953025980</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1565953025980</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -206,7 +214,8 @@
     <MESSAGE value="refactor toothMap" />
     <MESSAGE value="refactor code" />
     <MESSAGE value="add complain logic" />
-    <option name="LAST_COMMIT_MESSAGE" value="add complain logic" />
+    <MESSAGE value="fix human jaws bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix human jaws bug" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

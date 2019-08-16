@@ -40,7 +40,6 @@ const Login = (props) => {
     const onSubmit = (formData) => {
         props.signIn(formData.login, formData.password)
     };
-
     return (
         props.token ? <Redirect to={"/users"}/> :
             <div className={style.signInWrapper}>

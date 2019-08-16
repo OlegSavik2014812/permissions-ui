@@ -1,20 +1,13 @@
 import React, {Component} from "react";
 import human_jaws from "./../../../assets/images/teeth/human_jaws.jpg";
-import Tooth from "./Tooth/Tooth";
 import {localizeTextWithParams} from "../../../utils/translator/Translator";
 import Popover from "@material-ui/core/Popover";
+import ToothContainer from "./Tooth/ToothContainer";
 
 /*let tooth = this.props.teeth.find(tooth => tooth.toothNumber === toothNumber);*/
 class Profile extends Component {
     state = {
-        selectedTooth: null,
         anchor: null,
-    };
-
-    componentDidUpdate(prevProps, prevState, snapshot) {
-        if (prevProps.selectedTooth !== this.props.selectedTooth) {
-            this.setState({selectedTooth: this.props.selectedTooth});
-        }
     };
 
     handleClick = (event) => {
@@ -22,7 +15,7 @@ class Profile extends Component {
         let toothNumber = parseInt(anchor.alt);
         let userTooth = this.props.userTeeth.find(tooth => toothNumber === tooth.toothNumber);
         if (userTooth) {
-            this.setState({selectedTooth: userTooth});
+            this.props.setSelectedTooth(userTooth)
         } else {
             this.props.getToothInfo(toothNumber);
         }
@@ -49,7 +42,6 @@ class Profile extends Component {
         ];
         let toothAreaMap = coords.map(coordinate => {
             let alt = `${coords.indexOf(coordinate) + 1}`;
-
             return <area onClick={this.handleClick} target="_top" alt={alt} title={alt} aria-describedby={id}
                          coords={coordinate} shape="circle"/>
         });
@@ -59,13 +51,10 @@ class Profile extends Component {
                 <Popover id={id} open={open} anchorEl={this.state.anchor} onClose={this.handleClose}
                          anchorOrigin={{vertical: 'center', horizontal: 'center',}}
                          transformOrigin={{vertical: 'top', horizontal: 'bottom',}}>
-                    <Tooth tooth={this.state.selectedTooth} user={this.props.user}/>
+                    <ToothContainer/>
                 </Popover>
                 <div>
-                    <img src={human_jaws} alt={"jaws"} useMap={"#image-map"}/>
-                    <map name="image-map">
-                        {toothAreaMap}
-                    </map>
+                    <img src={human_jaws} alt={"jaws"} useMap={"#image-map"}/><map name="image-map">{toothAreaMap}</map>
                 </div>
             </div>
         )

@@ -58,12 +58,16 @@ export const teethAPI = {
     getToothById(toothId) {
         return instance.get(`/teeth/${toothId}`)
     },
-    postUserTooth(userTooth) {
+    getUserToothById(toothId) {
+        return instance.get(`/user_teeth?id=${toothId}`)
+    },
+    postUserTooth(userId, toothNumber, complaints) {
         return instance.post(`/user_teeth`, {
-            userTooth
+            userId, toothNumber, complaints
         })
     },
     postComplain(userToothId, description) {
+    debugger;
         return instance.post('/user_teeth/complain', {
             userToothId, description
         })

@@ -38,10 +38,32 @@ const teethReducer = (state = initialState, action) => {
 export const setTeeth = (userTeeth) => ({type: SET_TEETH, userTeeth: userTeeth});
 export const turnFetching = (isFetching) => ({type: SET_FETCHING, isFetching});
 
-export const complainOnTooth = (userId, toothNumber, problemDescription) => {
+export const addNewUserTooth = (userId, toothNumber, problemDescription) => {
     return (dispatch) => {
-        teethAPI.postUserTooth({userId, toothNumber})
-            .then(response => teethAPI.postComplain(response.userToothId, problemDescription))
+        let complaints = [{description: problemDescription}];
+        teethAPI.postUserTooth(userId, toothNumber, complaints)
+            .then((response) => {
+            debugger;
+                dispatch(getUserTooth(response.data.userToothId))
+            });
+    }
+};
+export const complain = (userToothId, problemDescription) => {
+    return (dispatch) => {
+    debugger;
+        teethAPI.postComplain(userToothId, problemDescription)
+            .then(() =>
+
+                dispatch(getUserTooth(userToothId)))
+    }
+};
+
+export const getUserTooth = (toothId) => {
+    return (dispatch) => {
+        teethAPI.getUserToothById(toothId)
+            .then(response => {
+                dispatch(setSelectedTooth(response.data))
+            })
     }
 };
 

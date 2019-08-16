@@ -11,22 +11,16 @@ import ToothImage from "./ToothImage/ToothImage";
 const Tooth = (props) => {
     let tooth = props.tooth;
 
-    let toothType;
-    let complaints;
-    let treatments;
-    let toothNumber;
-    if (tooth) {
-        toothType = tooth.toothType;
-        complaints = tooth.complaints;
-        treatments = tooth.treatments;
-        toothNumber = tooth.toothNumber;
+    let toothType = tooth.toothType;
 
-    }
+    let complaints = tooth.complaints;
     let complainComponents = complaints ? complaints.map(complaint => <Complaint complaint={complaint}/>) : "";
+
+    let treatments = tooth.treatments;
     let treatmentsComponents = treatments ? treatments.map(treatment => <Treatment treatment={treatment}/>) : "";
 
     let type = localizeTextWithParams("type {type}", {type: toothType});
-    let number = localizeTextWithParams("generalNumber {number}", {number: toothNumber});
+    let number = localizeTextWithParams("generalNumber {number}", {number: tooth.toothNumber});
     let id = localizeTextWithParams('patientName {name}', {name: props.user.login});
 
     return (

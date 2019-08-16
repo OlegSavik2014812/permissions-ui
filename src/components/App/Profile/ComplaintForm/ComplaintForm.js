@@ -1,51 +1,51 @@
-import React, {Component} from 'react'
+import React from 'react'
 
 import {connect} from "react-redux";
 import Button from "@material-ui/core/Button";
-import {complainOnTooth} from "../../../../redux/reducers/teethReducer";
+import {addNewUserTooth, complain} from "../../../../redux/reducers/teethReducer";
+import {Field, reduxForm} from "redux-form";
 
-class ComplainForm extends Component {
-    state = {
-        tooth: null,
-        user: null
+const ComplainForm = (props) => {
+    return (
+        <div>
+            <form onSubmit={props.handleSubmit}>
+                <div>
+                    <Field component={"input"} name="complaint"
+                           placeholder="Describe your problem"
+                    />
+                </div>
+                <div>
+                    <Button href={""} onClick={props.submit}>Complain</Button>
+                </div>
+            </form>
+        </div>
+    )
+};
+
+const ComplaintReduxForm = reduxForm({form: 'complain'})(ComplainForm);
+
+const Complain = (props) => {
+    const onSubmit = (formData) => {
+        let problemDescription = formData.complaint;
+    debugger;
+        if (!problemDescription) {
+            return;
+        }
+        if (props.tooth.id) {
+            props.complain(props.tooth.id, problemDescription);
+        } else {
+            props.addNewUserTooth(props.user.userId, props.tooth.toothNumber, problemDescription)
+        }
     };
 
-    componentDidMount() {
-    debugger
-        this.setState({
-            tooth: this.props.tooth,
-            user: this.props.user
-        })
-    }
+    return (
+        <ComplaintReduxForm onSubmit={onSubmit}/>
+    )
+};
 
-    onSubmit = (formData) => {
-        this.props.complainOnTooth(this.state.user.userId, this.state.tooth.toothNumber, formData.complaint)
-    };
+let mapStateToProps = (state) => ({
+    user: state.profilePage.selectedUser,
+    tooth: state.teethPage.selectedTooth,
+});
 
-    render() {
-        let tooth = this.props.tooth;
-        let user = this.props.user;
-        return (
-            <div>
-                <form>
-                    <div>
-                    </div>
-                    <div>
-                        {user.login}
-                    </div>
-                    <div>
-                        {tooth.toothType}
-                    </div>
-                    <div>
-                        <textarea name="complaint"/>>
-                    </div>
-                    <div>
-                        <Button href={""} onClick={this.onSubmit}>Complain</Button>
-                    </div>
-                </form>
-            </div>
-        )
-    }
-}
-
-export default connect(null, {complainOnTooth})(ComplainForm);
+export default connect(mapStateToProps, {addNewUserTooth, complain})(Complain);
