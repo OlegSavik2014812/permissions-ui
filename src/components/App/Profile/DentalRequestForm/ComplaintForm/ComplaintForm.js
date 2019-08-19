@@ -2,7 +2,7 @@ import React from 'react'
 
 import {connect} from "react-redux";
 import Button from "@material-ui/core/Button";
-import {addNewUserTooth, complain} from "../../../../redux/reducers/teethReducer";
+import {addNewUserTooth, complain} from "../../../../../redux/reducers/teethReducer";
 import {Field, reduxForm} from "redux-form";
 
 const ComplainForm = (props) => {
@@ -26,15 +26,14 @@ const ComplaintReduxForm = reduxForm({form: 'complain'})(ComplainForm);
 
 const Complain = (props) => {
     const onSubmit = (formData) => {
-        let problemDescription = formData.complaint;
-    debugger;
-        if (!problemDescription) {
+        let complaint = formData.complaint;
+        if (!complaint) {
             return;
         }
         if (props.tooth.id) {
-            props.complain(props.tooth.id, problemDescription);
+            props.complain(props.tooth.id, complaint);
         } else {
-            props.addNewUserTooth(props.user.userId, props.tooth.toothNumber, problemDescription)
+            props.addNewUserTooth(props.user.userId, props.tooth.toothNumber, complaint)
         }
     };
 

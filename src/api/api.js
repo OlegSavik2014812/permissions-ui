@@ -61,15 +61,19 @@ export const teethAPI = {
     getUserToothById(toothId) {
         return instance.get(`/user_teeth?id=${toothId}`)
     },
-    postUserTooth(userId, toothNumber, complaints) {
+    postUserTooth(userId, toothNumber, complaints, treatments) {
         return instance.post(`/user_teeth`, {
-            userId, toothNumber, complaints
+            userId, toothNumber, complaints, treatments
         })
     },
-    postComplain(userToothId, description) {
-    debugger;
+    postComplaint(userToothId, description) {
         return instance.post('/user_teeth/complain', {
             userToothId, description
         })
+    },
+    postTreatment(userToothId, description, price) {
+        return instance.post('/user_teeth/treat', {
+            userToothId, description, price
+        })
     }
-}
+};

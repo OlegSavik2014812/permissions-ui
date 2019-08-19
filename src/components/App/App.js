@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import './App.css';
 import NavBar from "./NavBar/NavBar";
 import {Route} from "react-router-dom";
 import Login from "./Auth/Login/Login";
@@ -22,12 +21,10 @@ class AppContainer extends Component {
                 <Container maxWidth="xl">
                     <HeaderContainer/>
                     <NavBar/>
-                    <div className='app-wrapper-content'>
-                        <Route path='/login' render={() => <Login/>}/>
-                        <Route path='/signUp' render={() => <SignUp/>}/>
-                        <Route path='/users' render={() => <UsersContainer/>}/>
-                        <Route path='/profile/:userId?' render={() => <ProfileContainer/>}/>
-                    </div>
+                    <Route path='/login' render={() => <Login/>}/>
+                    <Route path='/signUp' render={() => <SignUp/>}/>
+                    <Route path='/users' render={() => <UsersContainer/>}/>
+                    <Route path='/profile/:userId?' render={() => <ProfileContainer/>}/>
                 </Container>
             </Provider>
         );

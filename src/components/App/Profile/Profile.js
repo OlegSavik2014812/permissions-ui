@@ -23,6 +23,7 @@ class Profile extends Component {
     };
 
     handleClose = () => {
+        this.props.updateTeeth()
         this.setState({anchor: null});
     };
 
@@ -54,7 +55,8 @@ class Profile extends Component {
                     <ToothContainer/>
                 </Popover>
                 <div>
-                    <img src={human_jaws} alt={"jaws"} useMap={"#image-map"}/><map name="image-map">{toothAreaMap}</map>
+                    <img src={human_jaws} alt={"jaws"} useMap={"#image-map"}/>
+                    <map name="image-map">{toothAreaMap}</map>
                 </div>
             </div>
         )

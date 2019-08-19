@@ -1,49 +1,94 @@
 import React from 'react'
-import {reduxForm} from "redux-form";
-import style from '../Auth.module.css'
+import {Field, reduxForm} from "redux-form";
 import {connect} from "react-redux";
 import {NavLink, Redirect} from "react-router-dom";
 import {signIn} from "../../../../redux/reducers/authReducer";
 import Button from "@material-ui/core/Button";
 import {localizeText} from "../../../../utils/translator/Translator";
-import {getTranslatedField} from "../AuthUtils";
+import avatar from "../../../../assets/images/avatar-01.jpg";
+import {Translator} from "react-translated";
+import {maxLengthCreator, minLengthCreator, requiredField} from "../../../../utils/validators/validators";
+import {Input} from "../AuthUtils";
 
 const LoginForm = (props) => {
-    let loginField = getTranslatedField("login", "text", "loginPlaceholder");
-    let passwordField = getTranslatedField("password", "password", "passwordPlaceholder");
-    return (
-        <div>
-            <form onSubmit={props.handleSubmit}>
-                <div>
-                    {loginField}
-                </div>
-                <div>
-                    {passwordField}
-                </div>
-                <div>
-                    <Button href={""} onClick={props.submit}>{localizeText('signIn')}</Button>
-                </div>
-                {props.error !== null ?
-                    <div className={style.formError}>
-                        {props.error}
-                    </div> : ""}
-            </form>
 
-            <Button href={""}><NavLink to={'signUp'}>{localizeText('toSignUp')}</NavLink></Button>
+    let inputField = (value) =>
+        <Translator>
+            {({translate}) => (
+                <span className={'focus-input100'} data-placeholder={translate({text: `${value}`})}
+                />
+            )}
+        </Translator>;
+    return (
+
+        <div className="limiter">
+            <div className="container-login100">
+                <div className="wrap-login100 p-t-85 p-b-20">
+                    <form className="login100-form validate-form" onSubmit={props.handleSubmit}>
+					        <span className="login100-form-title p-b-70">
+                                {localizeText("welcome")}
+					        </span>
+
+                        <span className="login100-form-avatar">
+						        <img src={avatar} alt="AVATAR"/>
+					        </span>
+
+                        <div className="wrap-input100 validate-input m-t-85 m-b-35" data-validate="Enter username">
+                            <Field className="input100" type="text" name="username" component={Input}
+                                   validate={[requiredField, minLength5, maxLength255]}/>
+                            {inputField('login')}
+                        </div>
+
+                        <div className="wrap-input100 validate-input m-b-50" data-validate="Enter password">
+                            <Field className="input100" type="password" name="password" component={Input}
+                                   validate={[requiredField, minLength5, maxLength255]}/>
+                            {inputField('password')}
+                        </div>
+
+                        <div className="container-login100-form-btn">
+                            <Button className="login100-form-btn" href={""} onClick={props.submit}>
+                                {localizeText('signIn')}
+                            </Button>
+                        </div>
+
+                        <ul className="login-more p-t-190">
+                            <li className="m-b-8">
+							<span className="txt1">
+                                {localizeText('forgot')}
+							</span>
+                                <a href="#" className="txt2">
+                                    {localizeText('username_or_password')}
+                                </a>
+                            </li>
+
+                            <li>
+							        <span className="txt1">
+                                        {localizeText('dont_have_an_account')}
+							        </span>
+                                <NavLink to={'signUp'} className="txt2">
+                                    {localizeText('toSignUp')}
+                                </NavLink>
+                            </li>
+                        </ul>
+                    </form>
+                </div>
+            </div>
         </div>
     )
 };
 
 const LoginReduxForm = reduxForm({form: 'login'})(LoginForm);
 
+const minLength5 = minLengthCreator(5);
+const maxLength255 = maxLengthCreator(255);
+
 const Login = (props) => {
     const onSubmit = (formData) => {
-        props.signIn(formData.login, formData.password)
+        props.signIn(formData.username, formData.password)
     };
     return (
         props.token ? <Redirect to={"/users"}/> :
-            <div className={style.signInWrapper}>
-                <div className={style.formHeader}>{localizeText('signIn')}</div>
+            <div>
                 <LoginReduxForm onSubmit={onSubmit}/>
             </div>
     )

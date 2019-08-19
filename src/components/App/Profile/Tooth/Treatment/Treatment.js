@@ -5,7 +5,7 @@ import {localizeTextWithParams} from "../../../../../utils/translator/Translator
 const Treatment = (props) => {
     let localizedDate = localizeTextWithParams("date {date}", {date: props.treatment.date});
     let localizedDescription = localizeTextWithParams("description: {description}", {description: props.treatment.description});
-    let localizedCost = localizeTextWithParams("cost {cost}", {cost: props.treatment.cost});
+    let localizedCost = localizeTextWithParams("price {price}", {price: props.treatment.price});
 
     return (
         <div className={style.treatment}>

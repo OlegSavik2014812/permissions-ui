@@ -7,11 +7,20 @@ import {getUserById} from "../../../redux/reducers/profileReducer";
 import Profile from "./Profile";
 
 class ProfileContainer extends React.Component {
+    state = {
+        matchedUserId: null
+    };
+
     componentDidMount() {
         let matchedUserId = this.props.match.params.userId;
+        this.setState({matchedUserId: matchedUserId});
         this.props.getUserById(matchedUserId);
         this.props.getUserTeeth(matchedUserId);
     }
+
+    loadUserTeeth = () => {
+        this.props.getUserTeeth(this.state.matchedUserId);
+    };
 
     render() {
         return (
@@ -19,7 +28,8 @@ class ProfileContainer extends React.Component {
                      userTeeth={this.props.userTeeth}
                      selectedTooth={this.props.selectedTooth}
                      getToothInfo={this.props.getToothInfo}
-                     setSelectedTooth={this.props.setSelectedTooth}/>
+                     setSelectedTooth={this.props.setSelectedTooth}
+                     updateTeeth={this.loadUserTeeth}/>
         )
     }
 }
@@ -32,5 +42,4 @@ let mapStateToProps = (state) => ({
 export default compose(
     withRouter,
     connect(mapStateToProps, {getUserTeeth, getUserById, getToothInfo, setSelectedTooth})
-)
-(ProfileContainer);
+)(ProfileContainer);

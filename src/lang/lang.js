@@ -1,4 +1,10 @@
+import React from "react";
+
 export default {
+    'welcome': {
+        en: 'Welcome',
+        ru: 'Добро пожаловать'
+    },
     'lang': {
         en: 'Language',
         ru: 'Язык'
@@ -11,25 +17,38 @@ export default {
         en: 'Russian',
         ru: 'Русский'
     },
-    'loginPlaceholder': {
-        ru: 'Введите логин',
-        en: 'Enter Login'
+    'login': {
+        en: 'Login',
+        ru: 'Логин'
     },
-    'passwordPlaceholder': {
-        ru: 'Введите пароль',
-        en: 'Enter password'
+    'password': {
+        en: 'Password',
+        ru: 'Пароль'
     },
     'signIn': {
         ru: 'Войти',
         en: 'Sign In'
+    },
+    'forgot': {
+        en: 'Forgot',
+        ru: 'Забыли'
+    },
+
+    'dont_have_an_account': {
+        en: 'Don’t have an account?',
+        ru: 'Нет зарегестрированы?'
+    },
+    'username_or_password': {
+        en: ' Username / Password?',
+        ru: ' Логин / Пароль?'
     },
     'signUp': {
         ru: 'Зарегестрироваться',
         en: 'Sign Up'
     },
     'toSignUp': {
-        ru: 'К регистрации',
-        en: 'to Sign Up'
+        ru: ' Зарегестрироваться',
+        en: ' Sign Up'
     },
     'toSignIn': {
         ru: 'Ко входу',
@@ -52,9 +71,9 @@ export default {
         ru: 'Описание: {description}',
         en: 'Description: {description}'
     },
-    'cost {cost}': {
-        ru: 'Цена: {cost}',
-        en: 'Cost: {cost}'
+    'price {price}': {
+        ru: 'Цена: {price}',
+        en: 'Price: {price}'
     },
 
     'type {type}': {
