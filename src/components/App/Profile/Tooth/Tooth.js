@@ -24,6 +24,10 @@ const Tooth = (props) => {
     let number = localizeTextWithParams("generalNumber {number}", {number: tooth.toothNumber});
     let patientName = localizeTextWithParams('patientName {name}', {name: props.user.login});
 
+    let complaintsRef = React.createRef();
+    let treatmentsRef = React.createRef();
+    let scrollDownComplaints = () => complaintsRef.current.scrollTop = complaintsRef.current.scrollHeight;
+    let scrollDownTreatments = () => treatmentsRef.current.scrollTop = treatmentsRef.current.scrollHeight;
     return (
         <div className={style.tooth}>
             <div className={style.gridContainer}>
@@ -36,13 +40,17 @@ const Tooth = (props) => {
                     <p>{patientName}</p>
                 </div>
                 <div className={style.activity}>
-                    <div className={style.complaints}>
-                        {complainComponents}
-                        {tooth ? <ComplainForm user={props.user} tooth={tooth} /> : ""}
+                    <div>
+                        <div className={style.complaints} ref={complaintsRef}>
+                            {complainComponents}
+                        </div>
+                        {tooth ? <ComplainForm scrollOnSubmit={scrollDownComplaints}/> : ""}
                     </div>
-                    <div className={style.treatments}>
-                        {treatmentsComponents}
-                        {tooth ? <TreatmentForm user={props.user} tooth={tooth}/> : ""}
+                    <div>
+                        <div className={style.treatments} ref={treatmentsRef}>
+                            {treatmentsComponents}
+                        </div>
+                        {tooth ? <TreatmentForm scrollOnSubmit={scrollDownTreatments}/> : ""}
                     </div>
                 </div>
             </div>
