@@ -1,35 +1,26 @@
-import React from 'react'
+import React, {Component} from 'react'
 import {Field, reduxForm} from "redux-form";
 import {connect} from "react-redux";
-import {Redirect} from "react-router-dom";
+import {NavLink, Redirect} from "react-router-dom";
 import {signUp} from "../../../../redux/reducers/authReducer";
-import {getTranslatedField, Input} from "../AuthUtils";
+import {Input} from "../AuthUtils";
 import {localizeText} from "../../../../utils/translator/Translator";
 import avatar from "../../../../assets/images/avatar-01.jpg";
-import Button from "@material-ui/core/Button";
-import {Translator} from "react-translated";
-import {maxLengthCreator, minLengthCreator, requiredField} from "../../../../utils/validators/validators";
+import {
+    maxLengthCreator,
+    minLengthCreator,
+    passwordsMustMatch,
+    requiredField
+} from "../../../../utils/validators/validators";
 
-const SignUpForm = (props) => {
-    let loginField = getTranslatedField("login", "text", "loginPlaceholder");
-    let passwordField = getTranslatedField("password", "password", "passwordPlaceholder");
-    let inputField = (value) =>
-        <Translator>
-            {({translate}) => (
-                <span className={'focus-input100'} data-placeholder={translate({text: `${value}`})}
-                />
-            )}
-        </Translator>;
-
-    let formValidation = [requiredField, minLength5, maxLength255];
-    return (
-
-        <>
+class SignUpForm extends Component {
+    render() {
+        return (
             <div>
                 <div className="limiter">
                     <div className="container-login100">
                         <div className="wrap-login100 p-t-85 p-b-20">
-                            <form className="login100-form validate-form" onSubmit={props.handleSubmit}>
+                            <form className="login100-form validate-form" onSubmit={this.props.handleSubmit}>
 					        <span className="login100-form-title p-b-70">
                                 {localizeText("welcome")}
 					        </span>
@@ -42,29 +33,46 @@ const SignUpForm = (props) => {
                                      data-validate="Enter username">
 
                                     <Field className="input100" type="text" name="username" component={Input}
-                                           validate={formValidation}/>
-                                    {inputField('login')}
+                                           textVal='login'
+                                           validate={[requiredField, minLength5, maxLength255]}/>
                                 </div>
 
                                 <div className="wrap-input100 validate-input m-b-50" data-validate="Enter password">
-                                    <Field className="input100" type="password" name="password" component={Input}
-                                           validate={formValidation}/>
-                                    {inputField('password')}
+                                    <Field className="input100" type="password"  name="password"
+                                           component={Input}
+                                           textVal='password'
+                                           validate={[requiredField, minLength5, maxLength255]}/>
+                                </div>
+                                <div className="wrap-input100 validate-input m-b-50" data-validate="Enter password">
+                                    <Field className="input100" type="password"  name="confirmPassword"
+                                           component={Input}
+                                           textVal='confirm_password'
+                                           validate={[requiredField, minLength5, maxLength255, passwordsMustMatch]}/>
                                 </div>
 
                                 <div className="container-login100-form-btn">
-                                    <Button className="login100-form-btn" href={""} onClick={props.submit}>
+                                    <button className="login100-form-btn" onClick={this.props.submit}>
                                         {localizeText('signUp')}
-                                    </Button>
+                                    </button>
                                 </div>
+                                <ul className="login-more p-t-190">
+                                    <li>
+							        <span className="txt1">
+                                        {localizeText('already_have_acc')}
+							        </span>
+                                        <NavLink to={'login'} className="txt2">
+                                            {localizeText('signIn')}
+                                        </NavLink>
+                                    </li>
+                                </ul>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
-        </>
-    )
-};
+        )
+    }
+}
 
 const SignUpFormReduxForm = reduxForm({form: 'signUpForm'})(SignUpForm);
 const minLength5 = minLengthCreator(5);

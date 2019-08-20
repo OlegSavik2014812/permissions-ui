@@ -1,8 +1,7 @@
-import React from "react";
-
 export default {
     'welcome': {
         en: 'Welcome',
+
         ru: 'Добро пожаловать'
     },
     'lang': {
@@ -26,76 +25,86 @@ export default {
         ru: 'Пароль'
     },
     'signIn': {
-        ru: 'Войти',
-        en: 'Sign In'
+        en: 'Sign In',
+        ru: 'Войти'
     },
     'forgot': {
         en: 'Forgot',
         ru: 'Забыли'
     },
-
     'dont_have_an_account': {
-        en: 'Don’t have an account?',
-        ru: 'Нет зарегестрированы?'
+        en: 'Don’t have an account? ',
+        ru: 'Нет зарегестрированы? '
+    },
+    'already_have_acc': {
+        en: 'Already have an account? ',
+        ru: 'Уже есть аккаунт? '
     },
     'username_or_password': {
         en: ' Username / Password?',
         ru: ' Логин / Пароль?'
     },
     'signUp': {
-        ru: 'Зарегестрироваться',
-        en: 'Sign Up'
-    },
-    'toSignUp': {
-        ru: ' Зарегестрироваться',
-        en: ' Sign Up'
-    },
-    'toSignIn': {
-        ru: 'Ко входу',
-        en: 'to Sign In'
+        en: 'Sign Up',
+        ru: 'Зарегестрироваться'
     },
     'signOut': {
         en: 'Sign Out',
         ru: 'Выйти'
-
     },
     'users': {
-        ru: 'Пользователи',
-        en: 'Users'
+        en: 'Users',
+        ru: 'Пользователи'
     },
     'date {date}': {
-        ru: 'Дата: {date}',
-        en: 'Date: {date}'
+        en: 'Date: {date}',
+        ru: 'Дата: {date}'
     },
     'description: {description}': {
-        ru: 'Описание: {description}',
-        en: 'Description: {description}'
+        en: 'Description: {description}',
+        ru: 'Описание: {description}'
     },
     'price {price}': {
-        ru: 'Цена: {price}',
-        en: 'Price: {price}'
+        en: 'Price: {price}',
+        ru: 'Цена: {price}'
     },
-
     'type {type}': {
-        ru: 'Тип: {type}',
-        en: 'Type: {type}'
+        en: 'Type: {type}',
+        ru: 'Тип: {type}'
     },
     'generalNumber {number}': {
-        ru: 'Порядковый номер: {number}',
-        en: 'General number: {number}'
+        en: 'General number: {number}',
+        ru: 'Порядковый номер: {number}'
     },
     'patientName {name}': {
-        ru: 'Имя пациента: {name}',
-        en: 'Patient name: {name}'
+        en: 'Patient name: {name}',
+        ru: 'Имя пациента: {name}'
     },
-
     'profile {name}': {
-        ru: 'Профиль {name}',
-        en: '{name}`s profile'
+        en: '{name}`s profile',
+        ru: 'Профиль {name}'
     },
-
     'delete': {
-        ru: 'Удалить',
-        en: 'Delete'
+        en: 'Delete',
+        ru: 'Удалить'
+    },
+    'max_length {value}': {
+        en: `String length is over {value} symbols`,
+        ru: `Длина строки превышает {value} символов`
+    }, 'min_length {value}': {
+        en: `String length is lower than {value} symbols`,
+        ru: `Длина строки меньше {value} символов`
+    },
+    'field_required': {
+        en: 'Field is required',
+        ru: 'Заполните поле'
+    },
+    'confirm_password': {
+        en: 'Confirm password',
+        ru: 'Подтвердите пароль'
+    },
+    'pass_doesnt_match': {
+        en: `Password doesn't match`,
+        ru: 'Пароль не совпадает'
     }
 };

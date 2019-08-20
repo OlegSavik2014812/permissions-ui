@@ -17,7 +17,6 @@ class AppContainer extends Component {
         let locale = this.props.lang;
         return (
             <Provider language={locale} translation={messages}>
-                <CssBaseline/>
                 <Container maxWidth="xl">
                     <HeaderContainer/>
                     <NavBar/>

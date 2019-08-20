@@ -1,6 +1,5 @@
 import {authAPI, usersAPI} from "../../api/api";
 
-const SET_AUTH_INFO = 'SET_AUTH_INFO';
 const SET_FETCHING = 'SET_FETCHING';
 const SET_PERMISSIONS = 'SET_PERMISSIONS';
 const SET_USER_AUTH = 'SET_USER_AUTH';
@@ -54,7 +53,6 @@ const authReducer = (state = initialState, action) => {
 };
 
 export const turnFetching = (isFetching) => ({type: SET_FETCHING, isFetching});
-export const setRestUserData = (userId, permissions) => ({type: SET_PERMISSIONS, userId, permissions});
 export const setUserData = (userId, login, token, groupName, permissions) => ({
     type: SET_USER_AUTH,
     payload: {userId, login, token, groupName, permissions}
@@ -95,14 +93,5 @@ export const signUp = (login, password) => {
             });
 
     };
-};
-
-export const getUserPermissions = (userId) => {
-    return (dispatch) => {
-        dispatch(turnFetching(true));
-        usersAPI.getById(userId).then(response => {
-            dispatch(setRestUserData(response))
-        })
-    }
 };
 export default authReducer;
